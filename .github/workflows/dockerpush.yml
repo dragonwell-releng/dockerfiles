@@ -1,0 +1,37 @@
+name: Docker build luchsh/build_ojdk:latest
+
+on:
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - master
+  # Run tests for any PRs.
+  pull_request:
+
+jobs:
+  # Run tests.
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      #- uses: actions/checkout@v2
+      - name: Run tests
+        run: |
+            echo "Testing"
+            #docker build . --file Dockerfile
+
+
+  # Push image to docker.io Registry.
+  push:
+    # Ensure test job passes before pushing image.
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: jerray/publish-docker-action@master
+        with:
+          username: ${{ secrets.DOCKER_IO_USERNAME }}
+          password: ${{ secrets.DOCKER_IO_PASSWD }}
+          repository: luchsh/build_ojdk
+          tags: latest
