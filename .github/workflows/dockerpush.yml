@@ -1,12 +1,10 @@
-name: Docker build luchsh/build_ojdk:latest
+name: Docker build luchsh/build_ojdk:jdk8
 
 on:
   push:
     # Publish `master` as Docker `latest` image.
     branches:
-      - master
-  # Run tests for any PRs.
-  pull_request:
+      - build_jdk8
 
 jobs:
   # Run tests.
@@ -34,4 +32,4 @@ jobs:
           username: ${{ secrets.DOCKER_IO_USERNAME }}
           password: ${{ secrets.DOCKER_IO_PASSWD }}
           repository: luchsh/build_ojdk
-          tags: latest
+          tags: jdk8
