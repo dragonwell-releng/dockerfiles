@@ -1,4 +1,4 @@
-name: Docker build dragonwelljdk/build_jdk:11u
+name: Docker build dragonwelljdk/build_jdk:latest
 
 on:
   push:
@@ -34,4 +34,4 @@ jobs:
           username: ${{ secrets.DOCKER_IO_USERNAME }}
           password: ${{ secrets.DOCKER_IO_PASSWD }}
           repository: dragonwelljdk/build_jdk
-          tags: 11u
+          tags: latest
