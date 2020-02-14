@@ -1,4 +1,4 @@
-name: Docker build luchsh/build_ojdk:jdk8
+name: Docker build dragonwelljdk/build_jdk:8u
 
 on:
   push:
@@ -31,5 +31,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_IO_USERNAME }}
           password: ${{ secrets.DOCKER_IO_PASSWD }}
-          repository: luchsh/build_ojdk
-          tags: jdk8
+          repository: dragonwelljdk/build_jdk
+          tags: 8u
