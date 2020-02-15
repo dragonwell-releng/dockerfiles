@@ -4,9 +4,7 @@ on:
   push:
     # Publish `master` as Docker `latest` image.
     branches:
-      - master
-  # Run tests for any PRs.
-  pull_request:
+      - build_jdk13
 
 jobs:
   # Run tests.
