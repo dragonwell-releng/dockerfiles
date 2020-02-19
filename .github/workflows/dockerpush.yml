@@ -1,10 +1,10 @@
-name: Docker build dragonwelljdk/build_jdk:latest
+name: Docker build dragonwelljdk/build_jdk:base
 
 on:
   push:
     # Publish `master` as Docker `latest` image.
     branches:
-      - master
+      - base
   # Run tests for any PRs.
   pull_request:
 
@@ -34,4 +34,4 @@ jobs:
           username: ${{ secrets.DOCKER_IO_USERNAME }}
           password: ${{ secrets.DOCKER_IO_PASSWD }}
           repository: dragonwelljdk/build_jdk
-          tags: latest
+          tags: base
